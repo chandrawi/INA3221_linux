@@ -1,0 +1,22 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "INA3221_linux"
+version = "0.1.0"
+authors = [
+  { name="Chandra Wijaya Sentosa", email="chandra.w.sentosa@gmail.com" },
+]
+description = "INA3221 shunt and bus voltage monitor library for linux"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "smbus2"
+]
