@@ -1,3 +1,5 @@
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/INA3221-linux)](https://pypi.org/project/INA3221-linux/)
+[![PyPI](https://img.shields.io/pypi/v/INA3221-linux)](https://pypi.org/project/INA3221-linux/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/chandrawi/INA3221_linux/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/chandrawi/INA3221_linux.svg)](https://github.com/chandrawi/INA3221_linux/issues)
 [![GitHub release](https://img.shields.io/github/release/chandrawi/INA3221_linux.svg?maxAge=3600)](https://github.com/chandrawi/INA3221_linux/releases)
@@ -42,10 +44,31 @@ around negative values in registers.
 As always feedback is welcome, please open an issue on GitHub.
 
 
-### Special characters
+## Installation
 
-- Ω == Ohm = ALT-234 (Windows)
-- µ == micro = ALT-0181 (Windows)
+### Using pip
+
+Using terminal run following command.
+```sh
+pip3 install INA3221-linux
+```
+
+### Using Git and Build Package
+
+To using latest update of the library, you can clone then build python package manually. Using this method require **build** module.
+```sh
+git clone https://github.com/chandrawi/INA3221_linux
+cd INA3221_linux
+python3 -m build
+pip3 install dist/INA3221_linux-0.0.1-py3-none-any.whl
+```
+
+### Enabling I2C Interface
+
+Before using the library, I2C interface must be enabled. For Raspberry pi OS, this is done by set I2C interface enable using raspi-config or edit **/boot/config.txt** by adding following line.
+```txt
+dtparam=i2c_arm=on
+```
 
 
 ### Related
