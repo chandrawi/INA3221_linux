@@ -17,6 +17,48 @@ class INA3221:
     MANUFACTURER = 0xFE
     DIE_ID = 0xFF
 
+    AVERAGE_1 = 0x00
+    AVERAGE_4 = 0x01
+    AVERAGE_16 = 0x02
+    AVERAGE_64 = 0x03
+    AVERAGE_128 = 0x04
+    AVERAGE_256 = 0x05
+    AVERAGE_512 = 0x06
+    AVERAGE_1024 = 0x07
+
+    TIME_140_US = 0x00
+    TIME_204_US = 0x01
+    TIME_332_US = 0x02
+    TIME_588_US = 0x03
+    TIME_1_1_MS = 0x04
+    TIME_2_1_MS = 0x05
+    TIME_4_2_MS = 0x06
+    TIME_8_2_MS = 0x07
+
+    MODE_POWER_DOWN = 0x00
+    MODE_SHUNT_SINGLE = 0x01
+    MODE_BUS_SINGLE = 0x02
+    MODE_ALL_SINGLE = 0x03
+    MODE_SHUNT_CONTINUOUS = 0x05
+    MODE_BUS_CONTINUOUS = 0x06
+    MODE_ALL_CONTINUOUS = 0x07
+
+    MASK_CVRF = 0x0000
+    MASK_TCF = 0x0002
+    MASK_PVF = 0x0004
+    MASK_WF_0 = 0x0008
+    MASK_WF_1 = 0x0010
+    MASK_WF_2 = 0x0020
+    MASK_SF = 0x0040
+    MASK_CF_0 = 0x0080
+    MASK_CF_1 = 0x0100
+    MASK_CF_2 = 0x0200
+    MASK_CEN = 0x0400
+    MASK_WEN = 0x0800
+    MASK_SCC_0 = 0x1000
+    MASK_SCC_1 = 0x2000
+    MASK_SCC_2 = 0x4000
+
     def __init__(self, address=0x40, bus=1):
         self._address = address
         self._bus = bus
@@ -226,22 +268,22 @@ class INA3221:
     def shutdown(self):
         return self.set_mode(0)
 
-    def shut_mode_shunt_trigger(self):
+    def set_mode_shunt_trigger(self):
         return self.set_mode(1)
 
-    def shut_mode_bus_trigger(self):
+    def set_mode_bus_trigger(self):
         return self.set_mode(2)
 
-    def shut_mode_shunt_bus_trigger(self):
+    def set_mode_shunt_bus_trigger(self):
         return self.set_mode(3)
 
-    def shut_mode_shunt_continuous(self):
+    def set_mode_shunt_continuous(self):
         return self.set_mode(5)
 
-    def shut_mode_bus_continuous(self):
+    def set_mode_bus_continuous(self):
         return self.set_mode(6)
 
-    def shut_mode_shunt_bus_continuous(self):
+    def set_mode_shunt_bus_continuous(self):
         return self.set_mode(7)
 
     def set_mask_enable(self, mask):
